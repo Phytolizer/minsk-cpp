@@ -10,3 +10,9 @@ project(
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 include(PushDirectory)
+
+push_directory_executable(
+    TARGET_NAME "Minsk"
+    SOURCE_FILES "Main.cpp"
+    LINKED_LIBRARIES "fmt"
+)
