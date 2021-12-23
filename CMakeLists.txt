@@ -13,6 +13,6 @@ include(PushDirectory)
 
 push_directory_executable(
     TARGET_NAME "Minsk"
-    SOURCE_FILES "Main.cpp"
+    SOURCE_FILES "Main.cpp" "Lexer.cpp" "Core/Integer.cpp"
     LINKED_LIBRARIES "fmt"
 )
