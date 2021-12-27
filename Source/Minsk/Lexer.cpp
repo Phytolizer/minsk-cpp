@@ -1,6 +1,7 @@
 #include "Lexer.hpp"
 #include "Source/Minsk/Core/Integer.hpp"
 #include "Source/Minsk/Core/Object.hpp"
+#include "Source/Minsk/SyntaxKind.hpp"
 #include <cctype>
 #include <sstream>
 
@@ -45,6 +46,39 @@ Minsk::SyntaxToken Minsk::Lexer::Lex()
             ++m_position;
         }
         kind = SyntaxKind::WHITESPACE_TOKEN;
+    }
+    else
+    {
+        switch (Current())
+        {
+        case '+':
+            kind = SyntaxKind::PLUS_TOKEN;
+            ++m_position;
+            break;
+        case '-':
+            kind = SyntaxKind::MINUS_TOKEN;
+            ++m_position;
+            break;
+        case '*':
+            kind = SyntaxKind::STAR_TOKEN;
+            ++m_position;
+            break;
+        case '/':
+            kind = SyntaxKind::SLASH_TOKEN;
+            ++m_position;
+            break;
+        case '(':
+            kind = SyntaxKind::OPEN_PARENTHESIS_TOKEN;
+            ++m_position;
+            break;
+        case ')':
+            kind = SyntaxKind::CLOSE_PARENTHESIS_TOKEN;
+            ++m_position;
+            break;
+        default:
+            ++m_position;
+            break;
+        }
     }
 
     return SyntaxToken{

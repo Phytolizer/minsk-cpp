@@ -8,6 +8,8 @@ namespace Minsk
     X(MINUS_TOKEN)                                                                                                     \
     X(STAR_TOKEN)                                                                                                      \
     X(SLASH_TOKEN)                                                                                                     \
+    X(OPEN_PARENTHESIS_TOKEN)                                                                                          \
+    X(CLOSE_PARENTHESIS_TOKEN)                                                                                         \
     X(NUMBER_TOKEN)                                                                                                    \
     X(WHITESPACE_TOKEN)                                                                                                \
     X(BAD_TOKEN)                                                                                                       \
