@@ -1,12 +1,10 @@
 #pragma once
 
-namespace Minsk
-{
+namespace Minsk {
 
-class Object
-{
-  public:
-    virtual ~Object() = default;
+class Object {
+ public:
+  virtual ~Object() = default;
 };
 
-} // namespace Minsk
+}  // namespace Minsk

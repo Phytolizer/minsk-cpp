@@ -2,15 +2,13 @@
 
 #include "Object.hpp"
 
-namespace Minsk
-{
+namespace Minsk {
 
-class Integer : public Object
-{
-  public:
-    int value;
+class Integer : public Object {
+ public:
+  int value;
 
-    explicit Integer(int value);
+  explicit Integer(int value);
 };
 
-} // namespace Minsk
+}  // namespace Minsk

@@ -1,5 +1,3 @@
 #include "Integer.hpp"
 
-Minsk::Integer::Integer(int value) : value{value}
-{
-}
+Minsk::Integer::Integer(int value) : value{value} {}

@@ -1,22 +1,21 @@
 #pragma once
 
-#include "SyntaxToken.hpp"
 #include <string>
 
-namespace Minsk
-{
+#include "SyntaxToken.hpp"
 
-class Lexer
-{
-    std::string m_text;
-    int m_position;
+namespace Minsk {
 
-    char Current() const;
+class Lexer {
+  std::string m_text;
+  int m_position;
 
-  public:
-    explicit Lexer(const std::string& text);
+  char Current() const;
 
-    SyntaxToken Lex();
+ public:
+  explicit Lexer(const std::string& text);
+
+  SyntaxToken Lex();
 };
 
-} // namespace Minsk
+}  // namespace Minsk
