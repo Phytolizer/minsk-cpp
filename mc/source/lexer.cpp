@@ -43,29 +43,30 @@ minsk::syntax::Token minsk::Lexer::Lex() {
           cat == UCharCategory::U_MODIFIER_LETTER ||
           cat == UCharCategory::U_LETTER_NUMBER ||
           cat == UCharCategory::U_OTHER_LETTER || Current() == '_') {
-        bool ident = true;
-        while (ident) {
-          switch (u_charType(Current())) {
-            case UCharCategory::U_UPPERCASE_LETTER:
-            case UCharCategory::U_LOWERCASE_LETTER:
-            case UCharCategory::U_TITLECASE_LETTER:
-            case UCharCategory::U_MODIFIER_LETTER:
-            case UCharCategory::U_LETTER_NUMBER:
-            case UCharCategory::U_OTHER_LETTER:
-            case UCharCategory::U_NON_SPACING_MARK:
-            case UCharCategory::U_COMBINING_SPACING_MARK:
-            case UCharCategory::U_DECIMAL_DIGIT_NUMBER:
-            case UCharCategory::U_CONNECTOR_PUNCTUATION:
-            case UCharCategory::U_FORMAT_CHAR:
-              text.append(text_iter_.next32PostInc());
-              ++position_;
-              break;
-            default:
-              ident = false;
+        kind = syntax::Kind::kIdentifierToken;
+        while (true) {
+          cat = static_cast<UCharCategory>(u_charType(Current()));
+          if (cat == UCharCategory::U_UPPERCASE_LETTER ||
+              cat == UCharCategory::U_LOWERCASE_LETTER ||
+              cat == UCharCategory::U_TITLECASE_LETTER ||
+              cat == UCharCategory::U_MODIFIER_LETTER ||
+              cat == UCharCategory::U_LETTER_NUMBER ||
+              cat == UCharCategory::U_OTHER_LETTER ||
+              cat == UCharCategory::U_NON_SPACING_MARK ||
+              cat == UCharCategory::U_COMBINING_SPACING_MARK ||
+              cat == UCharCategory::U_DECIMAL_DIGIT_NUMBER ||
+              cat == UCharCategory::U_CONNECTOR_PUNCTUATION ||
+              cat == UCharCategory::U_FORMAT_CHAR ||
+              (cat == UCharCategory::U_OTHER_SYMBOL)) {
+            text.append(text_iter_.next32PostInc());
+            ++position_;
+          } else {
+            break;
           }
         }
       } else {
         text.append(text_iter_.next32PostInc());
+        ++position_;
       }
     } break;
   }

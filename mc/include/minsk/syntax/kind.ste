@@ -3,6 +3,7 @@ minsk::syntax::Kind = STE(
     kEndOfFileToken
 
     kNumberToken
+    kIdentifierToken
     kWhitespaceToken
 
     kPlusToken
