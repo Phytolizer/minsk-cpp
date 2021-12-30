@@ -1,6 +1,5 @@
 use std::fs::File;
 use std::path::PathBuf;
-use std::process::exit;
 use std::str::FromStr;
 
 use lalrpop_util::lalrpop_mod;
@@ -47,7 +46,6 @@ fn main() {
         .unwrap();
     dbg!(&output);
     emit_code(result, output);
-    exit(1);
 }
 
 fn emit_code(result: ast::StronglyTypedEnum, output: PathBuf) {
@@ -85,7 +83,12 @@ fn emit_code(result: ast::StronglyTypedEnum, output: PathBuf) {
     .unwrap();
     writeln!(
         f,
-        "constexpr std::strong_ordering operator<=>(Type other) const {{ return value_ <=> other.value_; }}"
+        "constexpr std::strong_ordering operator<=>(const Type& other) const {{ return value_ <=> other.value_; }}"
+    )
+    .unwrap();
+    writeln!(
+        f,
+        "constexpr bool operator==(const Type& other) const {{ return value_ == other.value_; }}"
     )
     .unwrap();
     writeln!(f, "}};").unwrap();

@@ -1,6 +1,8 @@
 #pragma once
 
-#include <cstddef>
+#include <unicode/unistr.h>
+
+#include <cstdint>
 #include <string>
 
 #include "minsk/syntax/kind.hpp"
@@ -8,7 +10,7 @@
 namespace minsk::syntax {
 struct Token {
   Kind::Type kind;
-  std::size_t position;
-  std::string text;
+  std::int32_t position;
+  icu::UnicodeString text;
 };
 }  // namespace minsk::syntax

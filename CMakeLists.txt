@@ -33,8 +33,8 @@ endforeach()
 minsk_target(
     TARGET_NAME "mc"
     TARGET_KIND EXECUTABLE
-    SOURCES "main.cpp"
+    SOURCES "main.cpp" "lexer.cpp"
     ABSOLUTE_SOURCES ${HPP_FILES}
-    LIBRARIES "fmt"
+    LIBRARIES "fmt" "icuuc" "icui18n" "icudata" "icuio"
     INCLUDED_DIRECTORIES "${PROJECT_BINARY_DIR}/gen/mc/include"
 )
