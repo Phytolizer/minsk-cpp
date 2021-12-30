@@ -57,7 +57,8 @@ minsk::syntax::Token minsk::Lexer::Lex() {
               cat == UCharCategory::U_DECIMAL_DIGIT_NUMBER ||
               cat == UCharCategory::U_CONNECTOR_PUNCTUATION ||
               cat == UCharCategory::U_FORMAT_CHAR ||
-              (cat == UCharCategory::U_OTHER_SYMBOL)) {
+              (cat == UCharCategory::U_OTHER_SYMBOL &&
+               (u_hasBinaryProperty(Current(), UProperty::UCHAR_EMOJI)))) {
             text.append(text_iter_.next32PostInc());
             ++position_;
           } else {
