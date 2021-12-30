@@ -28,6 +28,30 @@ minsk::syntax::Token minsk::Lexer::Lex() {
     case '\0':
       kind = syntax::Kind::kEndOfFileToken;
       break;
+    case '+':
+      kind = syntax::Kind::kPlusToken;
+      text.append(text_iter_.next32PostInc());
+      break;
+    case '-':
+      kind = syntax::Kind::kMinusToken;
+      text.append(text_iter_.next32PostInc());
+      break;
+    case '*':
+      kind = syntax::Kind::kStarToken;
+      text.append(text_iter_.next32PostInc());
+      break;
+    case '/':
+      kind = syntax::Kind::kSlashToken;
+      text.append(text_iter_.next32PostInc());
+      break;
+    case '(':
+      kind = syntax::Kind::kOpenParenthesisToken;
+      text.append(text_iter_.next32PostInc());
+      break;
+    case ')':
+      kind = syntax::Kind::kCloseParenthesisToken;
+      text.append(text_iter_.next32PostInc());
+      break;
     case '0' ... '9':
       kind = syntax::Kind::kNumberToken;
       while (Current() >= '0' && Current() <= '9') {
