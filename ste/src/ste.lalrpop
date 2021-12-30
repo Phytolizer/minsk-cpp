@@ -1,0 +1,32 @@
+use crate::ast::*;
+
+grammar;
+
+pub(crate) StronglyTypedEnum: StronglyTypedEnum = {
+    <n:NamespacedIdentifier> "=" "STE(" <i:Identifier*> ");" => {
+        StronglyTypedEnum {
+            namespace: n.namespace,
+            name: n.name,
+            variants: i,
+        }
+    }
+}
+
+NamespacedIdentifier: NamespacedIdentifier = {
+    <n:Namespace*> <i:Identifier> => {
+        NamespacedIdentifier {
+            namespace: n,
+            name: i,
+        }
+    }
+}
+
+Namespace: String = {
+    <i:Identifier> "::" => i
+}
+
+Identifier: String = {
+    r"[a-zA-Z_][a-zA-Z0-9_]*" => {
+        String::from(<>)
+    }
+}

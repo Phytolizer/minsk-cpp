@@ -1,0 +1,14 @@
+minsk::syntax::Kind = STE(
+    kBadToken
+    kEndOfFileToken
+
+    kNumberToken
+    kWhitespaceToken
+
+    kPlusToken
+    kMinusToken
+    kStarToken
+    kSlashToken
+    kOpenParenthesisToken
+    kCloseParenthesisToken
+);

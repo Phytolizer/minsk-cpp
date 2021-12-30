@@ -1,4 +1,11 @@
-/.cache
+# CLion
 /.idea
-/build
 /cmake-build-*
+
+# Visual Studio Code
+/.cache
+/build
+/.vscode
+
+# Rust
+/target

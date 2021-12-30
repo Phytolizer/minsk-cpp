@@ -18,6 +18,7 @@
           "TARGET_NAME": 1,
           "TARGET_KIND": 1,
           "SOURCES": "*",
+          "ABSOLUTE_SOURCES": "*",
           "INCLUDED_DIRECTORIES": "*",
           "LIBRARIES": "*"
         }
