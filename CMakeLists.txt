@@ -8,11 +8,14 @@ project(
     HOMEPAGE_URL "https://github.com/Phytolizer/minsk-cpp"
 )
 
-list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
-include(PushDirectory)
+find_package(fmt REQUIRED)
 
-push_directory_executable(
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+include(MinskTarget)
+
+minsk_target(
     TARGET_NAME "Minsk"
-    SOURCE_FILES "Main.cpp" "Lexer.cpp" "Core/Integer.cpp"
-    LINKED_LIBRARIES "fmt"
+    TARGET_KIND EXECUTABLE
+    SOURCES "main.cpp"
+    LIBRARIES "fmt"
 )

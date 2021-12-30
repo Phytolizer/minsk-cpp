@@ -13,18 +13,13 @@
           "DEPENDS": "*"
         }
       },
-      "push_directory_executable": {
-        "flags": [
-          "TARGET_NAME",
-          "SOURCE_FILES",
-          "INCLUDED_DIRECTORIES",
-          "LINKED_LIBRARIES"
-        ],
+      "minsk_target": {
         "kwargs": {
-          "TARGET_NAME": "1",
-          "SOURCE_FILES": "*",
+          "TARGET_NAME": 1,
+          "TARGET_KIND": 1,
+          "SOURCES": "*",
           "INCLUDED_DIRECTORIES": "*",
-          "LINKED_LIBRARIES": "*"
+          "LIBRARIES": "*"
         }
       }
     },
