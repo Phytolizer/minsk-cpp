@@ -14,7 +14,7 @@ function(minsk_target)
     else()
         set(MINSK_PRIVACY PRIVATE)
     endif()
-    list(TRANSFORM MINSK_SOURCES PREPEND "minsk/source/")
+    list(TRANSFORM MINSK_SOURCES PREPEND "${MINSK_TARGET_NAME}/source/")
     cmake_language(
         CALL "add_${MINSK_TARGET_KIND}" "${MINSK_TARGET_NAME}" ${MINSK_SHARED}
         ${MINSK_SOURCES}

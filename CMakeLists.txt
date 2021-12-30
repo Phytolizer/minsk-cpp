@@ -14,7 +14,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(MinskTarget)
 
 minsk_target(
-    TARGET_NAME "Minsk"
+    TARGET_NAME "mc"
     TARGET_KIND EXECUTABLE
     SOURCES "main.cpp"
     LIBRARIES "fmt"
